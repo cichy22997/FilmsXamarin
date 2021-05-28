@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="FilmsXamarin.Views.FilmsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows"
+    BackgroundColor="{StaticResource BackgroundColor}">
+    <!--<ContentPage.ToolbarItems>
+        <ToolbarItem />
+    </ContentPage.ToolbarItems>-->
+    <AbsoluteLayout HorizontalOptions="Fill" VerticalOptions="Fill">
+        <Grid HorizontalOptions="Fill" VerticalOptions="Fill">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <StackLayout Grid.Row="0" BackgroundColor="{StaticResource DarkBluePrimary}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Image
+                        Grid.Column="1"
+                        HeightRequest="100"
+                        HorizontalOptions="Start"
+                        Source="Logo500.png"
+                        WidthRequest="100" />
+                    <Label
+                        Grid.Column="2"
+                        FontFamily="MainFont"
+                        FontSize="30"
+                        Text="Choose Your Movie:"
+                        TextColor="{StaticResource YellowPrimary}"
+                        VerticalOptions="Center" />
+                </Grid>
+            </StackLayout>
+            
+            
+            <CollectionView
+                x:Name="MyListView"
+                Grid.Row="1"
+                ItemsSource="{Binding FilmsCollection}"
+                VerticalOptions="CenterAndExpand">
+                <CollectionView.EmptyView>
+                    <RelativeLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Fill">
+                        <StackLayout RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.33}">
+                            <sh:Shadows CornerRadius="40" Shades="{sh:SingleShade Offset='0, 10', Opacity=0.8, Color={StaticResource BlueShadows}}">
+                                <Frame Style="{StaticResource FilmFrame}" VerticalOptions="Fill" Margin="10,0,10,0">
+                                    <Grid
+                                        Margin="10,25,10,25"
+                                        HorizontalOptions="Fill"
+                                        VerticalOptions="Fill">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="11" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Label
+                                            Grid.Column="0"
+                                            FontFamily="MainFont"
+                                            FontSize="20"
+                                            Text="You can create your own list of movies in here..."
+                                            TextColor="{StaticResource YellowPrimary}"
+                                            VerticalOptions="Center" />
+                                        <Frame
+                                            Grid.Column="1"
+                                            Margin="5"
+                                            BackgroundColor="{StaticResource YellowPrimary}"
+                                            VerticalOptions="Fill"
+                                            WidthRequest="1" />
+                                        <Label
+                                            Grid.Column="2"
+                                            Margin="10,0,0,0"
+                                            FontFamily="MainFont"
+                                            FontSize="20"
+                                            HorizontalTextAlignment="Center"
+                                            Text="Just press that Add Button below!"
+                                            TextColor="{StaticResource YellowPrimary}"
+                                            VerticalTextAlignment="Center" />
+                                    </Grid>
+                                </Frame>
+                            </sh:Shadows>
+                        </StackLayout>
+                    </RelativeLayout>
+                </CollectionView.EmptyView>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <SwipeView>
+                            <SwipeView.RightItems>
+                                <SwipeItem IconImageSource="EditIcon.png" />
+                            </SwipeView.RightItems>
+                            <SwipeView.LeftItems>
+                                <SwipeItem IconImageSource="Delete.png" />
+                            </SwipeView.LeftItems>
+                            <StackLayout HorizontalOptions="Fill" VerticalOptions="Fill">
+                                <sh:Shadows CornerRadius="40" Shades="{sh:SingleShade Offset='0, 8', Opacity=0.8, Color={StaticResource BlueShadows}}">
+                                    <Frame Style="{StaticResource FilmFrame}">
+                                        <Grid
+                                            Padding="10,0,10,0"
+                                            HorizontalOptions="Fill"
+                                            VerticalOptions="Fill">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="4*" />
+                                                <ColumnDefinition Width="6" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+                                            <Label
+                                                Grid.Column="0"
+                                                FontFamily="MainFont"
+                                                FontSize="20"
+                                                Text="{Binding .}"
+                                                TextColor="{StaticResource YellowPrimary}"
+                                                VerticalOptions="Center" />
+                                            <Frame
+                                                Grid.Column="1"
+                                                Margin="5,5,0,5"
+                                                BackgroundColor="{StaticResource YellowPrimary}"
+                                                VerticalOptions="Fill"
+                                                WidthRequest="1" />
+                                            <ImageButton
+                                                Grid.Column="2"
+                                                BackgroundColor="Transparent"
+                                                HeightRequest="10"
+                                                Source="LoupeIcon.png"
+                                                WidthRequest="10" />
+                                        </Grid>
+                                    </Frame>
+                                </sh:Shadows>
+                            </StackLayout>
+                        </SwipeView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+
+        <StackLayout AbsoluteLayout.LayoutBounds="0.92,1.2,0.5,0.25" AbsoluteLayout.LayoutFlags="All">
+            <StackLayout HorizontalOptions="End" VerticalOptions="End">
+                <sh:Shadows CornerRadius="30" Shades="{sh:SingleShade Offset='0, 6', Opacity=0.7, Color={StaticResource YellowShadows}}">
+
+                    <ImageButton
+                        Padding="0"
+                        Aspect="AspectFit"
+                        BackgroundColor="{StaticResource YellowDark}"
+                        Command="{Binding OnAddClick}"
+                        CornerRadius="28"
+                        HeightRequest="56"
+                        HorizontalOptions="Center"
+                        Source="add.png"
+                        VerticalOptions="Center"
+                        Visual="Material"
+                        WidthRequest="56" />
+                </sh:Shadows>
+            </StackLayout>
+        </StackLayout>
+
+    </AbsoluteLayout>
+</ContentPage>

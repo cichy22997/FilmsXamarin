@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FilmsXamarin.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="YellowPrimary">#FFC600</Color>
+            <Color x:Key="YellowDark">#D3A400</Color>
+            <Color x:Key="YellowShadows">#524000</Color>
+            <Color x:Key="YellowBright">#FFEDAD</Color>
+            <Color x:Key="DarkBluePrimary">#01184C</Color>
+            <Color x:Key="BackgroundColor">#dedede</Color>
+            <Color x:Key="BlueBright">#D4DBED</Color>
+            <Color x:Key="BlueShadows">#02123C</Color>
+            <Color x:Key="StandardBlue">#041E62</Color>
+
+            <Style x:Key="FilmFrame" TargetType="Frame">
+                <Setter Property="HasShadow" Value="True" />
+                <Setter Property="CornerRadius" Value="15" />
+                <Setter Property="Margin" Value="0,0,0,30" />
+                <Setter Property="Padding" Value="10" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="MinimumHeightRequest" Value="80" />
+                <Setter Property="BackgroundColor" Value="{StaticResource StandardBlue}" />
+            </Style>
+
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource DarkBluePrimary}" />
+                <Setter Property="BarTextColor" Value="White" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
