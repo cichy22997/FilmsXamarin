@@ -11,15 +11,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Fonts\Acme-Regular.ttf" />
+    <None Remove="Fonts\FontsScript.ttf" />
     <None Remove="Fonts\Lobster-Regular.ttf" />
     <None Remove="Fonts\OleoScriptSwashCaps-Regular.ttf" />
-    <None Remove="Fonts\ScriptMTBold.ttf" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Fonts\Acme-Regular.ttf" />
     <EmbeddedResource Include="Fonts\Lobster-Regular.ttf" />
     <EmbeddedResource Include="Fonts\OleoScriptSwashCaps-Regular.ttf" />
-    <EmbeddedResource Include="Fonts\ScriptMTBold.ttf" />
+    <EmbeddedResource Include="Fonts\FontsScript.ttf" />
   </ItemGroup>
 
   <ItemGroup>

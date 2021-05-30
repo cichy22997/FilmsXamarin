@@ -5,7 +5,7 @@ using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-[assembly: ExportFont("ScriptMTBold.ttf", Alias = "MainFont")]
+[assembly: ExportFont("Acme-Regular.ttf", Alias = "MainFont")]
 
 namespace FilmsXamarin
 {
