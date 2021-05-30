@@ -1,4 +1,4 @@
-<p align="right"><img src="FilmsXamarin.Android/Resources/drawable/logo500.png" alt="drawing" width="150"/>
+# FilmsXamarin
 
 ## Table of contents
 * [General info](#general-info)
