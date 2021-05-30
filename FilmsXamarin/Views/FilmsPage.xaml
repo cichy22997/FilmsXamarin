@@ -4,10 +4,8 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows"
+    x:Name="MyFilmsPage"
     BackgroundColor="{StaticResource BackgroundColor}">
-    <!--<ContentPage.ToolbarItems>
-        <ToolbarItem />
-    </ContentPage.ToolbarItems>-->
     <AbsoluteLayout HorizontalOptions="Fill" VerticalOptions="Fill">
         <Grid HorizontalOptions="Fill" VerticalOptions="Fill">
             <Grid.RowDefinitions>
@@ -41,8 +39,8 @@
                         VerticalOptions="Center" />
                 </Grid>
             </StackLayout>
-            
-            
+
+
             <CollectionView
                 x:Name="MyListView"
                 Grid.Row="1"
@@ -52,7 +50,10 @@
                     <RelativeLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Fill">
                         <StackLayout RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.33}">
                             <sh:Shadows CornerRadius="40" Shades="{sh:SingleShade Offset='0, 10', Opacity=0.8, Color={StaticResource BlueShadows}}">
-                                <Frame Style="{StaticResource FilmFrame}" VerticalOptions="Fill" Margin="10,0,10,0">
+                                <Frame
+                                    Margin="10,0,10,0"
+                                    Style="{StaticResource FilmFrame}"
+                                    VerticalOptions="Fill">
                                     <Grid
                                         Margin="10,25,10,25"
                                         HorizontalOptions="Fill"
@@ -97,13 +98,19 @@
                     <DataTemplate>
                         <SwipeView>
                             <SwipeView.RightItems>
-                                <SwipeItem IconImageSource="EditIcon.png" />
+                                <SwipeItem
+                                    Command="{Binding Source={x:Reference MyFilmsPage}, Path=BindingContext.SwipeToEdit}"
+                                    CommandParameter="{Binding .}"
+                                    IconImageSource="EditIcon.png" />
                             </SwipeView.RightItems>
                             <SwipeView.LeftItems>
-                                <SwipeItem IconImageSource="Delete.png" />
+                                <SwipeItem
+                                    Command="{Binding Source={x:Reference MyFilmsPage}, Path=BindingContext.SwipeToDelete}"
+                                    CommandParameter="{Binding .}"
+                                    IconImageSource="Delete.png" />
                             </SwipeView.LeftItems>
                             <StackLayout HorizontalOptions="Fill" VerticalOptions="Fill">
-                                <sh:Shadows CornerRadius="40" Shades="{sh:SingleShade Offset='0, 8', Opacity=0.8, Color={StaticResource BlueShadows}}">
+                                <!--<sh:Shadows CornerRadius="40" Shades="{sh:SingleShade Offset='0, 8', Opacity=0.8, Color={StaticResource BlueShadows}}">-->
                                     <Frame Style="{StaticResource FilmFrame}">
                                         <Grid
                                             Padding="10,0,10,0"
@@ -121,7 +128,7 @@
                                                 Grid.Column="0"
                                                 FontFamily="MainFont"
                                                 FontSize="20"
-                                                Text="{Binding .}"
+                                                Text="{Binding Title}"
                                                 TextColor="{StaticResource YellowPrimary}"
                                                 VerticalOptions="Center" />
                                             <Frame
@@ -133,12 +140,14 @@
                                             <ImageButton
                                                 Grid.Column="2"
                                                 BackgroundColor="Transparent"
+                                                Command="{Binding Source={x:Reference MyFilmsPage}, Path=BindingContext.OnDetailsClick}"
+                                                CommandParameter="{Binding .}"
                                                 HeightRequest="10"
                                                 Source="LoupeIcon.png"
                                                 WidthRequest="10" />
                                         </Grid>
                                     </Frame>
-                                </sh:Shadows>
+                                <!--</sh:Shadows>-->
                             </StackLayout>
                         </SwipeView>
                     </DataTemplate>

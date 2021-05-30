@@ -1,4 +1,6 @@
-﻿using FilmsXamarin.ViewModels;
+﻿using FilmsXamarin.Models;
+using FilmsXamarin.Services;
+using FilmsXamarin.ViewModels;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -23,9 +25,11 @@ namespace FilmsXamarin.Views
             NavigationPage.SetHasNavigationBar(this, false);
         }
 
-        protected override void OnAppearing()
+        protected async override void OnAppearing()
         {
             base.OnAppearing();
+            await FilmsVM.RefreshFilmsList();
         }
+
     }
 }

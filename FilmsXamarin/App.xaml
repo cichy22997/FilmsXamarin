@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FilmsXamarin.App">
+<Application
+    x:Class="FilmsXamarin.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <Application.Resources>
         <ResourceDictionary>
             <Color x:Key="YellowPrimary">#FFC600</Color>
@@ -17,16 +18,11 @@
             <Style x:Key="FilmFrame" TargetType="Frame">
                 <Setter Property="HasShadow" Value="True" />
                 <Setter Property="CornerRadius" Value="15" />
-                <Setter Property="Margin" Value="0,0,0,30" />
+                <Setter Property="Margin" Value="10,0,10,5" />
                 <Setter Property="Padding" Value="10" />
                 <Setter Property="HorizontalOptions" Value="FillAndExpand" />
                 <Setter Property="MinimumHeightRequest" Value="80" />
-                <Setter Property="BackgroundColor" Value="{StaticResource StandardBlue}" />
-            </Style>
-
-            <Style TargetType="NavigationPage">
-                <Setter Property="BarBackgroundColor" Value="{StaticResource DarkBluePrimary}" />
-                <Setter Property="BarTextColor" Value="White" />
+                <Setter Property="BackgroundColor" Value="{StaticResource DarkBluePrimary}" />
             </Style>
         </ResourceDictionary>
     </Application.Resources>
