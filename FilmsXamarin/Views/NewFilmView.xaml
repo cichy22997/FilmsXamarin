@@ -6,52 +6,42 @@
     xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows"
     BackgroundColor="{StaticResource BackgroundColor}">
     <AbsoluteLayout HorizontalOptions="Fill" VerticalOptions="Fill">
-        <RelativeLayout
-            Padding="0"
-            HorizontalOptions="Fill"
-            VerticalOptions="Fill">
-            <StackLayout BackgroundColor="{StaticResource DarkBluePrimary}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
-                    <Label
-                        Grid.Row="0"
-                        Grid.Column="0"
-                        Padding="20,0,0,0"
-                        FontFamily="MainFont"
-                        FontSize="24"
-                        HorizontalOptions="Start"
-                        Text="Add new Film to Your List:"
-                        TextColor="{StaticResource YellowDark}"
-                        VerticalOptions="Center" />
-                    <Image
-                        Grid.Row="0"
-                        Grid.Column="1"
-                        HeightRequest="100"
-                        HorizontalOptions="End"
-                        Source="Logo500"
-                        VerticalOptions="Center"
-                        WidthRequest="100" />
-                </Grid>
-            </StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
             <StackLayout
-                HeightRequest="600"
-                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
-                                                                  Property=Height,
-                                                                  Factor=0.33}"
-                VerticalOptions="Center">
+                Grid.Row="0"
+                BackgroundColor="{StaticResource DarkBluePrimary}"
+                Orientation="Horizontal">
+                <Image
+                    HeightRequest="60"
+                    HorizontalOptions="End"
+                    Source="Logo500"
+                    VerticalOptions="Center"
+                    WidthRequest="60" />
+                <Label
+                    FontFamily="MainFont"
+                    FontSize="24"
+                    HorizontalOptions="Start"
+                    Text="Add new Film to Your List:"
+                    TextColor="{StaticResource YellowPrimary}"
+                    VerticalOptions="Center" />
+            </StackLayout>
+            <FlexLayout
+                Grid.Row="2"
+                Direction="Column" JustifyContent="Center"
+                FlexLayout.Grow="1">
 
                 <sh:Shadows CornerRadius="30" Shades="{sh:SingleShade Offset='0, 10', Opacity=0.8, Color={StaticResource BlueShadows}}">
                     <Frame
-                        Margin="50,0,50,0"
+                        FlexLayout.Grow="1"
+                        Margin="40,0,40,0"
                         Padding="20,30,20,50"
-                        BackgroundColor="{StaticResource StandardBlue}"
-                        CornerRadius="15">
+                        BackgroundColor="{StaticResource DarkBluePrimary}"
+                        CornerRadius="15"
+                        VerticalOptions="CenterAndExpand">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
@@ -59,17 +49,17 @@
                             </Grid.RowDefinitions>
                             <StackLayout Grid.Row="0">
                                 <Label
+                                    Margin="0,0,0,25"
                                     Padding="10"
                                     FontFamily="MainFont"
                                     FontSize="30"
-                                    Margin="0,0,0,25"
                                     HorizontalTextAlignment="Center"
                                     Text="Details"
                                     TextColor="{StaticResource YellowDark}" />
                                 <Frame
                                     Margin="10,10,10,0"
                                     Padding="5,0,5,0"
-                                    BackgroundColor="#fff">
+                                    BackgroundColor="{StaticResource EntryBackground}">
                                     <Entry
                                         MaxLength="200"
                                         Placeholder="Title"
@@ -85,7 +75,7 @@
                                 <Frame
                                     Margin="10"
                                     Padding="5,0,5,0"
-                                    BackgroundColor="#fff">
+                                    BackgroundColor="{StaticResource EntryBackground}">
                                     <Entry
                                         MaxLength="4"
                                         Placeholder="Year of production"
@@ -98,10 +88,8 @@
                         </Grid>
                     </Frame>
                 </sh:Shadows>
-            </StackLayout>
-        </RelativeLayout>
-
-
+            </FlexLayout>
+        </Grid>
         <StackLayout AbsoluteLayout.LayoutBounds="0.92,1.2,0.5,0.25" AbsoluteLayout.LayoutFlags="All">
             <StackLayout HorizontalOptions="End" VerticalOptions="End">
                 <sh:Shadows CornerRadius="30" Shades="{sh:SingleShade Offset='0, 6', Opacity=0.7, Color={StaticResource YellowShadows}}">

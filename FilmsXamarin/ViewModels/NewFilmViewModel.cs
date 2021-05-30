@@ -58,16 +58,20 @@ namespace FilmsXamarin.ViewModels
         {
             int year = default(int);
             var canBeParsed = Int32.TryParse(YearEntry, out year);
-            if(!canBeParsed)
-                await Application.Current.MainPage.DisplayAlert("Invalid year value!", "Year should be number", "Ok");
-
-            if (canBeParsed && year >= 1900 && year <= 2100)
+            if (!String.IsNullOrEmpty(TitleEntry))
             {
-                await FilmService.AddFilm(TitleEntry, year);
-                await Application.Current.MainPage.Navigation.PopModalAsync();
+                if(!canBeParsed)
+                    await Application.Current.MainPage.DisplayAlert("Invalid year value!", "Year should be number", "Ok");
+                if (canBeParsed && year >= 1900 && year <= 2100)
+                {
+                    await FilmService.AddFilm(TitleEntry, year);
+                    await Application.Current.MainPage.Navigation.PopModalAsync();
+                }
+                else
+                    await Application.Current.MainPage.DisplayAlert("Invalid year value!", "Year should be between 1900 and 2100", "Ok");
             }
             else
-                await Application.Current.MainPage.DisplayAlert("Invalid year value!", "Year should be between 1900 and 2100", "Ok");
+                await Application.Current.MainPage.DisplayAlert("Invalid title value!", "Film must have a title", "Ok");
         }
     }
 }

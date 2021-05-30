@@ -14,6 +14,7 @@
             <Color x:Key="BlueBright">#D4DBED</Color>
             <Color x:Key="BlueShadows">#02123C</Color>
             <Color x:Key="StandardBlue">#041E62</Color>
+            <Color x:Key="EntryBackground">#e8e8e8</Color>
 
             <Style x:Key="FilmFrame" TargetType="Frame">
                 <Setter Property="HasShadow" Value="True" />
